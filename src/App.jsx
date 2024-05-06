@@ -8,12 +8,6 @@ import { IoIosChatboxes, IoIosClose } from "react-icons/io";
 import Modal from "./Modal";
 
 function App() {
-  // const [showChat, setShowChat] = useState(false);
-
-  // const toggleChat = () => {
-  //   setShowChat(!showChat);
-  // };
-
   const [showModal, setShowModal] = useState(false);
 
   const toggleModal = () => {
@@ -38,6 +32,47 @@ function App() {
   };
 
   const isClicked = (inputType, id) => clickedInputs[inputType] === id;
+
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const formDataToSend = {
+        fullName: e.target.elements.fullname.value,
+        businessName: e.target.elements.businessname.value,
+        businessEmail: e.target.elements.businessemail.value,
+        phoneNumber: e.target.elements.phonenumber.value,
+        revenue: clickedInputs.revenue,
+        lookingFor: clickedInputs.lookingFor,
+        location: clickedInputs.location,
+        industry: e.target.elements.location.value,
+        grant: clickedInputs.grant
+      };
+  
+   
+      const over500Placeholder = document.getElementById('over500').getAttribute('placeholder');
+      const lessThan500Placeholder = document.getElementById('lessThan500').getAttribute('placeholder');
+      const moreCustomersPlaceholder = document.getElementById('moreCustomers').getAttribute('placeholder');
+      const reducedCostsPlaceholder = document.getElementById('reducedCosts').getAttribute('placeholder');
+      const canadaPlaceholder = document.getElementById('canada').getAttribute('placeholder');
+      const usaPlaceholder = document.getElementById('usa').getAttribute('placeholder');
+      const internationalPlaceholder = document.getElementById('international').getAttribute('placeholder');
+      
+   
+      formDataToSend.over500Placeholder = over500Placeholder;
+      formDataToSend.lessThan500Placeholder = lessThan500Placeholder;
+      formDataToSend.moreCustomersPlaceholder = moreCustomersPlaceholder;
+      formDataToSend.reducedCostsPlaceholder = reducedCostsPlaceholder;
+      formDataToSend.canadaPlaceholder = canadaPlaceholder;
+      formDataToSend.usaPlaceholder = usaPlaceholder;
+      formDataToSend.internationalPlaceholder = internationalPlaceholder;
+  
+      console.log(formDataToSend);
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+  
   return (
     <>
       <div className="bg-[#0E142B] relative text-white p-8 flex flex-col items-center">
@@ -48,11 +83,12 @@ function App() {
           <img className="w-48" src={logo} alt="" />
         </div>
         <div className="bg-[#0E142B] w-full md:w-full lg:w-8/12 border-white border rounded-2xl p-8   equal-shadow">
-          <form className="flex flex-col gap-4">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <div>
       <div data-aos="fade-up" data-aos-offset="200" data-aos-easing="ease-in-sine" data-aos-duration="600" data-aos-delay="500">
         <input
           type="text"
+          name="fullname"
           placeholder="Full Name"
           className="w-full p-2 mb-4 focus:outline-none border-white border rounded-3xl bg-inherit placeholder:text-white text-center"
         />
@@ -60,6 +96,7 @@ function App() {
       <div data-aos="fade-up" data-aos-offset="200" data-aos-easing="ease-in-sine" data-aos-duration="600" data-aos-delay="1500">
         <input
           type="text"
+          name="businessname"
           placeholder="Business Name"
           className="w-full p-2 mb-4 focus:outline-none border-white border rounded-3xl bg-inherit placeholder:text-white text-center"
         />
@@ -67,6 +104,7 @@ function App() {
       <div data-aos="fade-up" data-aos-offset="200" data-aos-easing="ease-in-sine" data-aos-duration="600" data-aos-delay="2500">
         <input
           type="text"
+          name="businessemail"
           placeholder="Business Email Address"
           className="w-full p-2 mb-4 focus:outline-none border-white border rounded-3xl bg-inherit placeholder:text-white text-center"
         />
@@ -74,6 +112,7 @@ function App() {
       <div data-aos="fade-up" data-aos-offset="200" data-aos-easing="ease-in-sine" data-aos-duration="600" data-aos-delay="3000">
         <input
           type="text"
+          name="phonenumber"
           placeholder="Phone Number"
           className="w-full p-2 mb-4 focus:outline-none border-white border rounded-3xl bg-inherit placeholder:text-white text-center"
         />
@@ -297,7 +336,7 @@ function App() {
           </form>
         </div>
         <div>
-      {/* Chat Icon */}
+   
       <div
         className="fixed bottom-8 bg-[#F23005] hover:scale-110 transition-transform duration-300 p-4 rounded-full right-12 cursor-pointer"
         onClick={toggleModal}
@@ -305,7 +344,6 @@ function App() {
         <IoIosChatboxes className="text-white text-3xl" />
       </div>
 
-      {/* Chat Modal */}
       <Modal isOpen={showModal} onClose={toggleModal} />
     </div>
       </div>
