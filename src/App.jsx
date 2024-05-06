@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import logo from './assets/2024-logo-landscape-red-white-p-500.png'
+import logo from "./assets/2024-logo-landscape-red-white-p-500.png";
 import { IoIosChatboxes, IoIosClose } from "react-icons/io";
 import Modal from "./Modal";
 
@@ -16,23 +16,21 @@ function App() {
   const [clickedInputs, setClickedInputs] = useState({
     revenue: null,
     lookingFor: null,
-    location: null
+    location: null,
   });
 
   useEffect(() => {
     AOS.init();
   }, []);
 
-
-   const handleInputClick = (inputType, id) => {
-    setClickedInputs(prevState => ({
+  const handleInputClick = (inputType, id) => {
+    setClickedInputs((prevState) => ({
       ...prevState,
-      [inputType]: prevState[inputType] === id ? null : id
+      [inputType]: prevState[inputType] === id ? null : id,
     }));
   };
 
   const isClicked = (inputType, id) => clickedInputs[inputType] === id;
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -46,105 +44,93 @@ function App() {
         lookingFor: clickedInputs.lookingFor,
         location: clickedInputs.location,
         industry: e.target.elements.location.value,
-        grant: clickedInputs.grant
+        grant: clickedInputs.grant,
       };
-  
-   
-      // const over500Placeholder = document.getElementById('over500').getAttribute('placeholder');
-      // const lessThan500Placeholder = document.getElementById('lessThan500').getAttribute('placeholder');
-      // const moreCustomersPlaceholder = document.getElementById('moreCustomers').getAttribute('placeholder');
-      // const reducedCostsPlaceholder = document.getElementById('reducedCosts').getAttribute('placeholder');
-      // const canadaPlaceholder = document.getElementById('canada').getAttribute('placeholder');
-      // const usaPlaceholder = document.getElementById('usa').getAttribute('placeholder');
-      // const internationalPlaceholder = document.getElementById('international').getAttribute('placeholder');
-      
-   
-      // formDataToSend.over500Placeholder = over500Placeholder;
-      // formDataToSend.lessThan500Placeholder = lessThan500Placeholder;
-      // formDataToSend.moreCustomersPlaceholder = moreCustomersPlaceholder;
-      // formDataToSend.reducedCostsPlaceholder = reducedCostsPlaceholder;
-      // formDataToSend.canadaPlaceholder = canadaPlaceholder;
-      // formDataToSend.usaPlaceholder = usaPlaceholder;
-      // formDataToSend.internationalPlaceholder = internationalPlaceholder;
-      // if (isClicked('revenue', 'over500')) {
-      //   formDataToSend.over500Placeholder = document.getElementById('over500').getAttribute('placeholder');
-      // }
-      // if (isClicked('revenue', 'lessThan500')) {
-      //   formDataToSend.lessThan500Placeholder = document.getElementById('lessThan500').getAttribute('placeholder');
-      // }
-      // if (isClicked('lookingFor', 'moreCustomers')) {
-      //   formDataToSend.moreCustomersPlaceholder = document.getElementById('moreCustomers').getAttribute('placeholder');
-      // }
-      // if (isClicked('lookingFor', 'reducedCosts')) {
-      //   formDataToSend.reducedCostsPlaceholder = document.getElementById('reducedCosts').getAttribute('placeholder');
-      // }
-      // if (isClicked('location', 'canada')) {
-      //   formDataToSend.canadaPlaceholder = document.getElementById('canada').getAttribute('placeholder');
-      // }
-      // if (isClicked('location', 'usa')) {
-      //   formDataToSend.usaPlaceholder = document.getElementById('usa').getAttribute('placeholder');
-      // }
-      // if (isClicked('location', 'international')) {
-      //   formDataToSend.internationalPlaceholder = document.getElementById('international').getAttribute('placeholder');
-      // }
-  
+
       console.log(formDataToSend);
     } catch (error) {
-      console.error('Error:', error);
+      console.error("Error:", error);
     }
   };
-  
+
   return (
     <>
       <div className="bg-[#0E142B] relative text-white p-8 flex flex-col items-center">
-        <div
-          
-          className="flex items-center gap-2 p-2 mb-6"
-        >
+        <div className="flex items-center gap-2 p-2 mb-6">
           <img className="w-48" src={logo} alt="" />
         </div>
-        <div className="bg-[#0E142B] w-full md:w-full lg:w-8/12 border-white border rounded-2xl p-8   equal-shadow">
+        <div className="bg-[#0E142B] w-full md:w-full lg:w-1/2 border-white border rounded-2xl p-8   equal-shadow">
           <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-          <div>
-      <div data-aos="fade-up" data-aos-offset="200" data-aos-easing="ease-in-sine" data-aos-duration="600" data-aos-delay="500">
-        <input
-          type="text"
-          name="fullname"
-          placeholder="Full Name"
-          className="w-full p-2 mb-4 focus:outline-none border-white border rounded-3xl bg-inherit placeholder:text-white text-center"
-        />
-      </div>
-      <div data-aos="fade-up" data-aos-offset="200" data-aos-easing="ease-in-sine" data-aos-duration="600" data-aos-delay="1500">
-        <input
-          type="text"
-          name="businessname"
-          placeholder="Business Name"
-          className="w-full p-2 mb-4 focus:outline-none border-white border rounded-3xl bg-inherit placeholder:text-white text-center"
-        />
-      </div>
-      <div data-aos="fade-up" data-aos-offset="200" data-aos-easing="ease-in-sine" data-aos-duration="600" data-aos-delay="2500">
-        <input
-          type="text"
-          name="businessemail"
-          placeholder="Business Email Address"
-          className="w-full p-2 mb-4 focus:outline-none border-white border rounded-3xl bg-inherit placeholder:text-white text-center"
-        />
-      </div>
-      <div data-aos="fade-up" data-aos-offset="200" data-aos-easing="ease-in-sine" data-aos-duration="600" data-aos-delay="3000">
-        <input
-          type="text"
-          name="phonenumber"
-          placeholder="Phone Number"
-          className="w-full p-2 mb-4 focus:outline-none border-white border rounded-3xl bg-inherit placeholder:text-white text-center"
-        />
-      </div>
-    </div>
+            <div>
+              <div
+                data-aos="fade-up"
+                data-aos-offset="200"
+                data-aos-easing="ease-in-sine"
+                data-aos-duration="600"
+                data-aos-delay="500"
+              >
+                <input
+                  type="text"
+                  name="fullname"
+                  placeholder="Full Name"
+                  className="w-full p-2 mb-4 focus:outline-none border-white border rounded-3xl bg-inherit placeholder:text-white text-center"
+                />
+              </div>
+              <div
+                data-aos="fade-up"
+                data-aos-offset="200"
+                data-aos-easing="ease-in-sine"
+                data-aos-duration="600"
+                data-aos-delay="1500"
+              >
+                <input
+                  type="text"
+                  name="businessname"
+                  placeholder="Business Name"
+                  className="w-full p-2 mb-4 focus:outline-none border-white border rounded-3xl bg-inherit placeholder:text-white text-center"
+                />
+              </div>
+              <div
+                data-aos="fade-up"
+                data-aos-offset="200"
+                data-aos-easing="ease-in-sine"
+                data-aos-duration="600"
+                data-aos-delay="2500"
+              >
+                <input
+                  type="text"
+                  name="businessemail"
+                  placeholder="Business Email Address"
+                  className="w-full p-2 mb-4 focus:outline-none border-white border rounded-3xl bg-inherit placeholder:text-white text-center"
+                />
+              </div>
+              <div
+                data-aos="fade-up"
+                data-aos-offset="200"
+                data-aos-easing="ease-in-sine"
+                data-aos-duration="600"
+                data-aos-delay="3000"
+              >
+                <input
+                  type="text"
+                  name="phonenumber"
+                  placeholder="Phone Number"
+                  className="w-full p-2 mb-4 focus:outline-none border-white border rounded-3xl bg-inherit placeholder:text-white text-center"
+                />
+              </div>
+            </div>
 
-<div data-aos="fade-up"
+            <div
+              data-aos="fade-up"
               data-aos-offset="200"
               data-aos-easing="ease-in-sine"
-              data-aos-duration="600" data-aos-delay="500" className="flex flex-col mt-4 mb-4 items-center">
-              <p className="text-center mb-4">Company annual revenue for the last 12 months?</p>
+              data-aos-duration="600"
+              data-aos-delay="500"
+              className="flex flex-col mt-4 mb-4 items-center"
+            >
+              <p className="text-center mb-4">
+                Company annual revenue for the last 12 months?
+              </p>
               <div className="flex items-center justify-center">
                 {/* <input
                 
@@ -157,15 +143,17 @@ function App() {
                   placeholder="Over 500k"
                   onClick={() => handleInputClick('revenue', 'over500')}
                 /> */}
-                 <div
+                <div
                   id="over500"
                   className={` mr-2 p-2 pr-5 pl-5 text-xs md:text-lg focus:outline-none focus:bg-[#117FC5] cursor-pointer border-white border rounded-3xl bg-inherit placeholder:text-white text-center caret-transparent ${
-                    isClicked('revenue', 'over500') && 'clicked-input'
+                    isClicked("revenue", "over500") && "clicked-input"
                   }`}
                   placeholder="Over 500k"
-                  onClick={() => handleInputClick('revenue', 'over500')}
-                >Over 500k</div>
-                
+                  onClick={() => handleInputClick("revenue", "over500")}
+                >
+                  Over 500k
+                </div>
+
                 {/* <input
                   type="text"
                   id="lessThan500"
@@ -176,20 +164,25 @@ function App() {
                   placeholder="Less than 500k"
                   onClick={() => handleInputClick('revenue', 'lessThan500')}
                 /> */}
-                 <div
+                <div
                   id="lessThan500"
                   className={` p-2 pr-5 pl-5 text-xs md:text-lg focus:outline-none focus:bg-[#117FC5] cursor-pointer border-white border rounded-3xl bg-inherit placeholder:text-white text-center caret-transparent ${
-                    isClicked('revenue', 'lessThan500') && 'clicked-input'
+                    isClicked("revenue", "lessThan500") && "clicked-input"
                   }`}
                   placeholder="Less than 500k"
-                  onClick={() => handleInputClick('revenue', 'lessThan500')}
-                >Less than 500k</div>
+                  onClick={() => handleInputClick("revenue", "lessThan500")}
+                >
+                  Less than 500k
+                </div>
               </div>
             </div>
-            <div data-aos="fade-up"
+            <div
+              data-aos="fade-up"
               data-aos-offset="200"
               data-aos-easing="ease-in-sine"
-              data-aos-duration="600" className="flex flex-col items-center">
+              data-aos-duration="600"
+              className="flex flex-col items-center"
+            >
               <p className="text-center mb-4">What are you looking for?</p>
               <div className="flex flex-col items-center">
                 <div className="flex items-center flex-col md:flex-row gap-4 mb-4">
@@ -206,11 +199,16 @@ function App() {
                   <div
                     id="moreCustomers"
                     className={` p-2 pr-5 pl-5 md:mr-2 text-xs md:text-lg focus:outline-none  cursor-pointer border-white border rounded-3xl bg-inherit placeholder:text-white text-center caret-transparent ${
-                      isClicked('lookingFor', 'moreCustomers') && 'clicked-input'
+                      isClicked("lookingFor", "moreCustomers") &&
+                      "clicked-input"
                     }`}
                     placeholder="More Customers"
-                    onClick={() => handleInputClick('lookingFor', 'moreCustomers')}
-                  >More Customers</div>
+                    onClick={() =>
+                      handleInputClick("lookingFor", "moreCustomers")
+                    }
+                  >
+                    More Customers
+                  </div>
                   {/* <input
                     type="text"
                     id="reducedCosts"
@@ -224,11 +222,15 @@ function App() {
                   <div
                     id="reducedCosts"
                     className={` p-2 pr-5 pl-5 text-xs md:text-lg focus:outline-none  cursor-pointer border-white border rounded-3xl bg-inherit placeholder:text-white text-center caret-transparent ${
-                      isClicked('lookingFor', 'reducedCosts') && 'clicked-input'
+                      isClicked("lookingFor", "reducedCosts") && "clicked-input"
                     }`}
                     placeholder="Reduced Overhead costs"
-                    onClick={() => handleInputClick('lookingFor', 'reducedCosts')}
-                  >Reduced Overhead costs</div>
+                    onClick={() =>
+                      handleInputClick("lookingFor", "reducedCosts")
+                    }
+                  >
+                    Reduced Overhead costs
+                  </div>
                 </div>
                 <div className="flex items-center w-1/2">
                   {/* <input
@@ -244,45 +246,58 @@ function App() {
                   <div
                     id="bothOptions"
                     className={`  p-2 w-full text-xs md:text-lg focus:outline-none  cursor-pointer  border-white border rounded-3xl bg-inherit placeholder:text-white text-center caret-transparent ${
-                      isClicked('lookingFor', 'bothOptions') && 'clicked-input'
+                      isClicked("lookingFor", "bothOptions") && "clicked-input"
                     }`}
                     placeholder="Both"
-                    onClick={() => handleInputClick('lookingFor', 'bothOptions')}
-                  >Both</div>
+                    onClick={() =>
+                      handleInputClick("lookingFor", "bothOptions")
+                    }
+                  >
+                    Both
+                  </div>
                 </div>
               </div>
             </div>
 
-            <div data-aos="fade-up"
+            <div
+              data-aos="fade-up"
               data-aos-offset="200"
               data-aos-easing="ease-in-sine"
-              data-aos-duration="600" className="flex flex-col items-center p-8">
+              data-aos-duration="600"
+              className="flex flex-col items-center p-8"
+            >
               <p className="text-center mb-4">Where are you located?</p>
-              <div  className="flex items-center flex-col gap-4 md:flex-row w-full">
-              <div
+              <div className="flex items-center flex-col gap-4 md:flex-row w-full">
+                <div
                   id="canada"
                   className={` w-full md:mr-2 text-xs md:text-lg p-2 focus:outline-none focus:bg-[#117FC5] cursor-pointer border-white border rounded-3xl bg-inherit placeholder:text-white text-center caret-transparent ${
-                    isClicked('location', 'canada') && 'clicked-input'
+                    isClicked("location", "canada") && "clicked-input"
                   }`}
                   placeholder="Canada"
-                  onClick={() => handleInputClick('location', 'canada')}
-                >Canada</div>
+                  onClick={() => handleInputClick("location", "canada")}
+                >
+                  Canada
+                </div>
                 <div
                   id="usa"
                   className={` w-full md:mr-2 text-xs md:text-lg p-2 focus:outline-none focus:bg-[#117FC5] cursor-pointer border-white border rounded-3xl bg-inherit placeholder:text-white text-center caret-transparent ${
-                    isClicked('location', 'usa') && 'clicked-input'
+                    isClicked("location", "usa") && "clicked-input"
                   }`}
                   placeholder="USA"
-                  onClick={() => handleInputClick('location', 'usa')}
-                >USA</div>
-             <div
+                  onClick={() => handleInputClick("location", "usa")}
+                >
+                  USA
+                </div>
+                <div
                   id="international"
                   className={` w-full p-2 text-xs md:text-lg focus:outline-none focus:bg-[#117FC5] cursor-pointer border-white border rounded-3xl bg-inherit placeholder:text-white text-center caret-transparent ${
-                    isClicked('location', 'international') && 'clicked-input'
+                    isClicked("location", "international") && "clicked-input"
                   }`}
                   placeholder="International"
-                  onClick={() => handleInputClick('location', 'international')}
-                >International</div>
+                  onClick={() => handleInputClick("location", "international")}
+                >
+                  International
+                </div>
               </div>
             </div>
             <div
@@ -290,55 +305,76 @@ function App() {
               data-aos-offset="200"
               data-aos-easing="ease-in-sine"
               data-aos-duration="600"
-                
               className="flex flex-col items-center mb-4"
             >
               <p className="text-center mb-2   text-white">Industry?</p>
-              <div className="flex items-center w-1/2">
-                <select
-                  id="location"
-                  name="location"
-                  className="w-full p-2 pl-4 focus:outline-none  cursor-pointer border-white border rounded-3xl bg-[#0E142B] placeholder:text-white text-white caret-transparent"
-                >
-                  <option value="select" selected>
-                    Select one
-                  </option>
-                  <option value="Agriculture">Agriculture</option>
-                  <option value="Automovive">Automovive</option>
-                  <option value="Construction">Construction</option>
-                </select>
-              </div>
+              <div className="flex items-center w-1/2 relative">
+  <select
+    id="location"
+    name="location"
+    className="w-full p-2 pl-4 pr-10 focus:outline-none cursor-pointer border-white border rounded-3xl bg-[#0E142B] placeholder:text-white text-white caret-transparent appearance-none"
+  >
+    <option value="select" defaultValue={"Select one..."}>
+      Select one...
+    </option>
+    <option value="Agriculture">Agriculture</option>
+    <option value="Automotive">Automotive</option>
+    <option value="Banking/Finance">Banking/Finance</option>
+    <option value="Construction">Construction</option>
+    <option value="Education">Education</option>
+    <option value="Energy">Energy</option>
+    <option value="Entertainment">Entertainment</option>
+    <option value="Food and Beverage">Food and Beverage</option>
+    <option value="Government">Government</option>
+    <option value="Healthcare">Healthcare</option>
+    <option value="Information Technology (IT)">Information Technology (IT)</option>
+    <option value="Manufacturing">Manufacturing</option>
+    <option value="Marketing/Advertising">Marketing/Advertising</option>
+    <option value="Non Profit/Charity">Non Profit/Charity</option>
+    <option value="Real Estate">Real Estate</option>
+    <option value="Retail">Retail</option>
+    <option value="Telecommunication">Telecommunication</option>
+    <option value="Transport/Logistics">Transport/Logistics</option>
+    <option value="Travel/Hospitality">Travel/Hospitality</option>
+    <option value="Other">Other</option>
+  </select>
+  {/* <div className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+    <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
+    </svg>
+  </div> */}
+</div>
+
             </div>
             <div
               data-aos="fade-up"
               data-aos-offset="200"
               data-aos-easing="ease-in-sine"
               data-aos-duration="600"
-                
               className="flex flex-col items-center"
             >
               <p className="text-center mb-4">
                 Are you interested in applying for a grant to get you started?
               </p>
               <div className="flex items-center justify-center w-full">
-              <div
-    id="yesGrant"
-    className={`md:w-1/3  w-full mr-2 p-2 text-xs md:text-lg focus:outline-none cursor-pointer border-white border rounded-3xl bg-inherit placeholder:text-white text-center caret-transparent ${
-      isClicked('grant', 'yesGrant') && 'clicked-input'
-    }`}
-    onClick={() => handleInputClick('grant', 'yesGrant')}
-  >
-    Yes
-  </div>
-  <div
-    id="noGrant"
-    className={`md:w-1/3 w-full p-2 text-xs md:text-lg focus:outline-none cursor-pointer border-white border rounded-3xl bg-inherit placeholder:text-white text-center caret-transparent ${
-      isClicked('grant', 'noGrant') && 'clicked-input'
-    }`}
-    onClick={() => handleInputClick('grant', 'noGrant')}
-  >
-    No
-  </div>
+                <div
+                  id="yesGrant"
+                  className={`md:w-1/3  w-full mr-2 p-2 text-xs md:text-lg focus:outline-none cursor-pointer border-white border rounded-3xl bg-inherit placeholder:text-white text-center caret-transparent ${
+                    isClicked("grant", "yesGrant") && "clicked-input"
+                  }`}
+                  onClick={() => handleInputClick("grant", "yesGrant")}
+                >
+                  Yes
+                </div>
+                <div
+                  id="noGrant"
+                  className={`md:w-1/3 w-full p-2 text-xs md:text-lg focus:outline-none cursor-pointer border-white border rounded-3xl bg-inherit placeholder:text-white text-center caret-transparent ${
+                    isClicked("grant", "noGrant") && "clicked-input"
+                  }`}
+                  onClick={() => handleInputClick("grant", "noGrant")}
+                >
+                  No
+                </div>
               </div>
             </div>
 
@@ -347,7 +383,6 @@ function App() {
               data-aos-offset="100"
               data-aos-easing="ease-in-sine"
               data-aos-duration="600"
-           
               className="flex items-center justify-center mt-8"
             >
               <button className="md:w-1/2 w-full  p-2 focus:outline-none focus:bg-[#117FC5] cursor-pointer border-white border rounded-3xl bg-inherit hover:bg-white hover:text-black">
@@ -357,16 +392,15 @@ function App() {
           </form>
         </div>
         <div>
-   
-      <div
-        className="fixed bottom-8 bg-[#F23005] hover:scale-110 transition-transform duration-300 p-4 rounded-full right-12 cursor-pointer"
-        onClick={toggleModal}
-      >
-        <IoIosChatboxes className="text-white text-3xl" />
-      </div>
+          <div
+            className="fixed bottom-8 bg-[#F23005] hover:scale-110 transition-transform duration-300 p-4 rounded-full right-12 cursor-pointer"
+            onClick={toggleModal}
+          >
+            <IoIosChatboxes className="text-white text-3xl" />
+          </div>
 
-      <Modal isOpen={showModal} onClose={toggleModal} />
-    </div>
+          <Modal isOpen={showModal} onClose={toggleModal} />
+        </div>
       </div>
     </>
   );
