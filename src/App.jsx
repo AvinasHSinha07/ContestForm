@@ -73,7 +73,7 @@ function App() {
                   type="text"
                   name="fullname"
                   placeholder="Full Name"
-                  className="w-full p-2 mb-4 focus:outline-none border-white border rounded-3xl bg-inherit placeholder:text-white text-center"
+                  className="w-full p-2 mb-4 focus:outline-none border-white/50 border rounded-3xl bg-inherit placeholder:text-white text-center"
                 />
               </div>
               <div
@@ -87,7 +87,7 @@ function App() {
                   type="text"
                   name="businessname"
                   placeholder="Business Name"
-                  className="w-full p-2 mb-4 focus:outline-none border-white border rounded-3xl bg-inherit placeholder:text-white text-center"
+                  className="w-full p-2 mb-4 focus:outline-none border-white/50 border rounded-3xl bg-inherit placeholder:text-white text-center"
                 />
               </div>
               <div
@@ -101,7 +101,7 @@ function App() {
                   type="text"
                   name="businessemail"
                   placeholder="Business Email Address"
-                  className="w-full p-2 mb-4 focus:outline-none border-white border rounded-3xl bg-inherit placeholder:text-white text-center"
+                  className="w-full p-2 mb-4 focus:outline-none border-white/50 border rounded-3xl bg-inherit placeholder:text-white text-center"
                 />
               </div>
               <div
@@ -115,7 +115,7 @@ function App() {
                   type="text"
                   name="phonenumber"
                   placeholder="Phone Number"
-                  className="w-full p-2 mb-4 focus:outline-none border-white border rounded-3xl bg-inherit placeholder:text-white text-center"
+                  className="w-full p-2 mb-4 focus:outline-none border-white/50 border rounded-3xl bg-inherit placeholder:text-white text-center"
                 />
               </div>
             </div>
