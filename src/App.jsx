@@ -50,22 +50,43 @@ function App() {
       };
   
    
-      const over500Placeholder = document.getElementById('over500').getAttribute('placeholder');
-      const lessThan500Placeholder = document.getElementById('lessThan500').getAttribute('placeholder');
-      const moreCustomersPlaceholder = document.getElementById('moreCustomers').getAttribute('placeholder');
-      const reducedCostsPlaceholder = document.getElementById('reducedCosts').getAttribute('placeholder');
-      const canadaPlaceholder = document.getElementById('canada').getAttribute('placeholder');
-      const usaPlaceholder = document.getElementById('usa').getAttribute('placeholder');
-      const internationalPlaceholder = document.getElementById('international').getAttribute('placeholder');
+      // const over500Placeholder = document.getElementById('over500').getAttribute('placeholder');
+      // const lessThan500Placeholder = document.getElementById('lessThan500').getAttribute('placeholder');
+      // const moreCustomersPlaceholder = document.getElementById('moreCustomers').getAttribute('placeholder');
+      // const reducedCostsPlaceholder = document.getElementById('reducedCosts').getAttribute('placeholder');
+      // const canadaPlaceholder = document.getElementById('canada').getAttribute('placeholder');
+      // const usaPlaceholder = document.getElementById('usa').getAttribute('placeholder');
+      // const internationalPlaceholder = document.getElementById('international').getAttribute('placeholder');
       
    
-      formDataToSend.over500Placeholder = over500Placeholder;
-      formDataToSend.lessThan500Placeholder = lessThan500Placeholder;
-      formDataToSend.moreCustomersPlaceholder = moreCustomersPlaceholder;
-      formDataToSend.reducedCostsPlaceholder = reducedCostsPlaceholder;
-      formDataToSend.canadaPlaceholder = canadaPlaceholder;
-      formDataToSend.usaPlaceholder = usaPlaceholder;
-      formDataToSend.internationalPlaceholder = internationalPlaceholder;
+      // formDataToSend.over500Placeholder = over500Placeholder;
+      // formDataToSend.lessThan500Placeholder = lessThan500Placeholder;
+      // formDataToSend.moreCustomersPlaceholder = moreCustomersPlaceholder;
+      // formDataToSend.reducedCostsPlaceholder = reducedCostsPlaceholder;
+      // formDataToSend.canadaPlaceholder = canadaPlaceholder;
+      // formDataToSend.usaPlaceholder = usaPlaceholder;
+      // formDataToSend.internationalPlaceholder = internationalPlaceholder;
+      // if (isClicked('revenue', 'over500')) {
+      //   formDataToSend.over500Placeholder = document.getElementById('over500').getAttribute('placeholder');
+      // }
+      // if (isClicked('revenue', 'lessThan500')) {
+      //   formDataToSend.lessThan500Placeholder = document.getElementById('lessThan500').getAttribute('placeholder');
+      // }
+      // if (isClicked('lookingFor', 'moreCustomers')) {
+      //   formDataToSend.moreCustomersPlaceholder = document.getElementById('moreCustomers').getAttribute('placeholder');
+      // }
+      // if (isClicked('lookingFor', 'reducedCosts')) {
+      //   formDataToSend.reducedCostsPlaceholder = document.getElementById('reducedCosts').getAttribute('placeholder');
+      // }
+      // if (isClicked('location', 'canada')) {
+      //   formDataToSend.canadaPlaceholder = document.getElementById('canada').getAttribute('placeholder');
+      // }
+      // if (isClicked('location', 'usa')) {
+      //   formDataToSend.usaPlaceholder = document.getElementById('usa').getAttribute('placeholder');
+      // }
+      // if (isClicked('location', 'international')) {
+      //   formDataToSend.internationalPlaceholder = document.getElementById('international').getAttribute('placeholder');
+      // }
   
       console.log(formDataToSend);
     } catch (error) {
